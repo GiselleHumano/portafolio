@@ -123,3 +123,77 @@ contactButton.addEventListener("click", () => {
     
 })(jQuery);
 
+/**/ 
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+    } else {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    }
+});
+
+/**
+ * Fade Effect
+ */
+
+function getPosition( element ) {
+    var xPosition = 0;
+    var yPosition = 0;
+
+    while( element ) {
+        xPosition += ( element.offsetLeft - element.scrollLeft + element.clientLeft );
+        yPosition += ( element.offsetTop - element.scrollTop + element.clientTop );
+        element = element.offsetParent;
+    }
+
+    return { x: xPosition, y: yPosition };
+}
+
+window.addEventListener( "scroll", function() {
+	
+	var scrollTop = window.pageYOffset,
+		fadeMe = document.querySelector( ".js-fadeMe" );
+	
+	function doOpacity( scroll, element ) {
+		
+		var position 		 = 1 - ( scrollTop - getPosition( element ).y ),
+			distanceToScroll = scrollTop + position,
+			opacity 	     = 1 - ( scrollTop / distanceToScroll );
+		
+		if ( opacity > 0 ) {
+			element.style.opacity = opacity;
+		}		
+	}
+	
+	doOpacity( scrollTop, fadeMe );
+	
+});
+
+
+
+/**
+ * Parallax Effect
+ */
+
+window.addEventListener( "scroll", function() {
+	
+	var scrolledHeight = window.pageYOffset,
+		parallaxElements = [].slice.call( document.querySelectorAll( ".js-parallax" ) );
+	
+	parallaxElements.forEach( function( element, index, array ) {
+		
+		var limit = element.offsetTop + element.offsetHeight;
+		
+		if ( scrolledHeight > element.offsetTop && scrolledHeight <= limit ) {
+			
+			element.style.backgroundPositionY = ( scrolledHeight - element.offsetTop ) / 1.5 + "px";
+			
+		} else {
+			
+			element.style.backgroundPositionY = "0";
+			
+		}
+	});
+});

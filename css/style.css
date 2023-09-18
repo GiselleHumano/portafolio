@@ -9982,3 +9982,61 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+
+
+.portfolio-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.verMas{
+  padding: 10px 20px;
+  background-color: #050356;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.verMas:hover{
+  background-color:#007bff;
+}
+
+/*PROYECTOS PORTAFOLIO*/
+.c-hero {
+	align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/proyectoOneImg01.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	display: flex;
+	height: 1000px;
+	justify-content: center;
+}
+
+.c-hero h1{
+  color: white;
+  font-size: 100px;
+}
+
+.contentHero{
+  text-align: center;
+  padding: 0% 20%;
+}
+
+
+.contenido {
+  margin: 0px 10%;
+  display: flex;
+  flex-direction: row-reverse; /* Esto coloca la imagen a la derecha */
+  align-items: center; /* Esto alinea verticalmente el contenido */
+}
+
+.contenido img {
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+  margin-left: 20px; /* Añade espacio entre la imagen y el texto */
+}
+
